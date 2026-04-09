@@ -9,7 +9,8 @@ load_dotenv()
 
 openai_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI()
-chroma_client = chromadb.PersistentClient(path="/home/ferret/Documents/BachelorThesisCode/chromadb")
+path_to_chroma = Path("chromadb")
+chroma_client = chromadb.PersistentClient(path=path_to_chroma)
 embedding_model = "text-embedding-3-small"
 collection_1 = chroma_client.get_collection(name="teaching_methods_db")
 collection_2 = chroma_client.get_collection(name="compsci_col")

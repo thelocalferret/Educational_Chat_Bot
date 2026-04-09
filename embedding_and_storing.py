@@ -8,7 +8,8 @@ load_dotenv()
 
 openai_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI()
-chroma = chromadb.PersistentClient(path="/home/ferret/Documents/BachelorThesisCode/chromadb")
+path_to_chroma = Path("chromadb")
+chroma = chromadb.PersistentClient(path=path_to_chroma)
 embedding_model = "text-embedding-3-small"
 
 def chunk_text(text, size=1000, overlap=200):
@@ -46,13 +47,13 @@ def embed_and_store(chunks, db_path, collection_name, description):
     )
     return collection
 
-file_path = Path("/home/ferret/Documents/BachelorThesisCode/teaching_methods.txt")
+file_path = Path("teaching_methods.txt")
 text = file_path.read_text(encoding="utf-8")
 chunks = chunk_text(text)
 
-#file_path_text_2 = Path("/home/ferret/Documents/BachelorThesisCode/think_python.txt")
-#text_2 = file_path_text_2.read_text(encoding="utf-8")
-#chunks_2 = chunk_text(text_2)
+file_path_text_2 = Path("think_python.txt")
+text_2 = file_path_text_2.read_text(encoding="utf-8")
+chunks_2 = chunk_text(text_2)
 
-collection = embed_and_store(chunks, "/home/ferret/Documents/BachelorThesisCode/chromadb", "teaching_methods_db", "Database of teaching methods")
-#collection_2 = embed_and_store(chunks_2, "/home/ferret/Documents/BachelorThesisCode/chromadb", "compsci_col", "Database of study materials on computer science")
+collection = embed_and_store(chunks, path_to_chroma, "teaching_methods_db", "Database of teaching methods")
+collection_2 = embed_and_store(chunks_2, path_to_chroma, "compsci_col", "Database of study materials on computer science")
