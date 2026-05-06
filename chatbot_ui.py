@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 root = Tk()
+
 root.title('Bachelor Thesis')
 root.geometry('720x400+150+100')
 root.configure(bg='light blue')
