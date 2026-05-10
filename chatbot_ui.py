@@ -33,7 +33,8 @@ def get_prompt(event):
     prompt = prompt_var.get()
     answer = ask_with_context(prompt)
     chat_history.config(state=NORMAL)
-    chat_history.insert(END, f"{answer}\n")
+    chat_history.insert(END, f"You: {prompt}\n\n")
+    chat_history.insert(END, f"AI: {answer}\n\n")
     chat_history.config(state=DISABLED)
     prompt_var.set("")
 
