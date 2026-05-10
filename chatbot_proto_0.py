@@ -114,10 +114,10 @@ def ask_with_context(question):
 
     return response.choices[0].message.content
 
-print("Type Exit to finish process.")
-while True:
-    question = input("Enter your prompt: ")
-    if question == "Exit":
-        break
-    answer = ask_with_context(question)
-    print(answer)
+#print("Type Exit to finish process.")
+#while True:
+#    question = input("Enter your prompt: ")
+#    if question == "Exit":
+#        break
+#    answer = ask_with_context(question)
+#    print(answer)
