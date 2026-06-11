@@ -55,7 +55,7 @@ def QueryVars(question):
     Original query: {question}"""
 
     completion = client.beta.chat.completions.parse(
-        model="gpt-5-mini",
+        model="gpt-5.4",
         messages=[
             {
                 "role": "user",
